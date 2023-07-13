@@ -1,6 +1,5 @@
 package net.javaguides.springboot.kafka;
 
-/*
 import net.javaguides.springboot.payloads.User;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.messaging.Message;
@@ -14,9 +13,6 @@ import org.springframework.stereotype.Service;
 @Service
 public class JsonKafkaProducer {
 
-
-	@Value("${spring.kafka.json_topic.name}")
-	private String jsonTopic;
 	private static final Logger LOGGER = LoggerFactory.getLogger(JsonKafkaProducer.class);
 
 	private KafkaTemplate<String, String> kafkaTemplate;
@@ -30,14 +26,11 @@ public class JsonKafkaProducer {
 
 		Message<User> message = MessageBuilder
 				.withPayload(data)
-				//.setHeader(KafkaHeaders.TOPIC, jsonTopic)
 				.setHeader(KafkaHeaders.TOPIC, "javaguides_json")
 				.build();		
-
 
 		kafkaTemplate.send(message);
 
 		LOGGER.info(String.format("Message: %s", data));
 	}
 }
-*/

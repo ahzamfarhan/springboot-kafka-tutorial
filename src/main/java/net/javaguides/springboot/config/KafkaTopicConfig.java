@@ -12,14 +12,6 @@ import org.springframework.kafka.config.TopicBuilder;
 public class KafkaTopicConfig {
 
     /*
-    @Value("${spring.kafka.topic.name}")
-    private String textTopic;
-
-    @Value("${spring.kafka.json_topic.name}")
-    private String jsonTopic;
-     */
-
-    /*
     * Creating Topic  by specified name and then injecting it
     * in the SpringBoot context. Type of the topic is NewTopic from Kafka
     * where TopicBuilder is from SpringBoot.
@@ -29,43 +21,11 @@ public class KafkaTopicConfig {
     *
     * */
     @Bean
-    public NewTopic javaguidesTopic() {
-
-        /*
-        return TopicBuilder.name("${textTopic}")
-                //.partitions(10)
-                .build();
-        */
-
-        return TopicBuilder.name("javaguides")
-            //.partitions(10)
-                .build();
-        /*
-           Use following code snipet if you want to create the customize number of
-           of the partions in the topic instead of relying on default number of
-           partions provided during creation of topic by kafka. In the following
-           we specify that our topic should have 10 partions in it
-
-         */
-        /*
-
-	   return TopicBuilder.name("javaguides")
-            .partitions(10)
-                .build();
-
-
-        */
-    }
-
-    /*
-    @Bean
     public NewTopic javaguidesJSonTopic() {
 
-      *//*
-        return TopicBuilder.name("${jsonTopic}")
-                .partitions(10)
+        return TopicBuilder.name("javaguides_json")
+                //.partitions(10)
                 .build();
-        */
 
          /*
            Use following code snipet if you want to create the customize number of
@@ -77,9 +37,9 @@ public class KafkaTopicConfig {
 
         /*
 	   return TopicBuilder
-		    .name("javaguides")
+		    .name(jsonTopic)
              .partitions(10)
 		    .build();
+         */
     }
-    */
 }
