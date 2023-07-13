@@ -1,7 +1,6 @@
 package net.javaguides.springboot.kafka;
 
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.stereotype.Service;
 
@@ -13,11 +12,6 @@ public class KafkaProducer {
 
 	//org.springframework.kafka.core.KafkaTemplate;
 	private KafkaTemplate<String, String> kafkaTemplate;
-
-	/*
-	@Value("${spring.kafka.topic.name}")
-	private String textTopic;
-	 */
 
 	public KafkaProducer(KafkaTemplate<String, String> kafkaTemplate) {
 		this.kafkaTemplate = kafkaTemplate;

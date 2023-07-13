@@ -1,6 +1,5 @@
 package net.javaguides.springboot.kafka;
 
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.kafka.annotation.KafkaListener;
 import org.springframework.stereotype.Service;
 import org.slf4j.Logger;
@@ -28,9 +27,6 @@ public class KafkaConsumer {
 
 		spring.kafka.consumer.group-id: myGroup
 	*/
-
-	//@KafkaListener(topics = "${spring.kafka.topic.name}", groupId = "${spring.kafka.group.name}")
-
 	@KafkaListener(topics = "javaguides", groupId = "myGroup")
 	public void subscribe(String message) {
 
