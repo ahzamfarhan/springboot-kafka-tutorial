@@ -11,12 +11,6 @@ import org.springframework.kafka.config.TopicBuilder;
 @Configuration
 public class KafkaTopicConfig {
 
-    @Value("${spring.kafka.topic.name}")
-    private String textTopic;
-
-    @Value("${spring.kafka.json_topic.name}")
-    private String jsonTopic;
-
     /*
     * Creating Topic  by specified name and then injecting it
     * in the SpringBoot context. Type of the topic is NewTopic from Kafka
