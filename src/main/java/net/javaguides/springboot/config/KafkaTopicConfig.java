@@ -11,6 +11,9 @@ import org.springframework.kafka.config.TopicBuilder;
 @Configuration
 public class KafkaTopicConfig {
 
+    @Value("${spring.kafka.json.topic.name}")
+    private String jsonTopicName;
+
     /*
     * Creating Topic  by specified name and then injecting it
     * in the SpringBoot context. Type of the topic is NewTopic from Kafka
@@ -23,7 +26,7 @@ public class KafkaTopicConfig {
     @Bean
     public NewTopic javaguidesJSonTopic() {
 
-        return TopicBuilder.name("javaguides_json")
+        return TopicBuilder.name(jsonTopicName)
                 //.partitions(10)
                 .build();
 
@@ -37,7 +40,7 @@ public class KafkaTopicConfig {
 
         /*
 	   return TopicBuilder
-		    .name(jsonTopic)
+		    .name(jsonTopicName)
              .partitions(10)
 		    .build();
          */
