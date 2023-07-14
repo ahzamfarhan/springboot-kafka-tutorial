@@ -27,7 +27,7 @@ public class KafkaConsumer {
 
 		spring.kafka.consumer.group-id: myGroup
 	*/
-	@KafkaListener(topics = "javaguides", groupId = "myGroup")
+	@KafkaListener(topics = "${spring.kafka.text-topic}", groupId = "${spring.kafka.consumer-group}")
 	public void subscribe(String message) {
 
 		String formattedMessage = String.format("Message received -> %s", message);
